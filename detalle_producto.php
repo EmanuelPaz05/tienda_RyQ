@@ -24,7 +24,7 @@
     <?php
     $id=$_GET['id'];
 
-    require("conexion/conexion.php");
+    require("./conexion/conexion.php");
     
     $consulta = "SELECT * FROM productos WHERE pro_id = $id";
     if($resultado = $mysqli->query($consulta)){
