@@ -1,0 +1,245 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Arial Narrow", Arial, sans-serif;
+}
+
+.navbar-brand .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navbar-brand .logo .icono img {
+  width: 80px;
+  height: 100px;
+}
+.navbar-brand .logo .titulo img {
+  width: 170px;
+  height: 80px;
+}
+
+.btn-rayas {
+  background-color: transparent;
+  color: #1122bd;
+  border-radius: 5px;
+  border: 1px solid #0b0d75;
+  padding: 4px 12px;
+}
+.btn-rayas:hover {
+  background-color: transparent;
+  color: #1122bd;
+}
+.btn-rayas:active {
+  background-color: transparent;
+  color: #1122bd;
+}
+
+.contenido-desplegable.show {
+  display: block !important;
+}
+
+.contenido-desplegable {
+  display: none;
+}
+
+.nav-buscador {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav-buscador #buscador {
+  display: flex;
+}
+
+.btn-buscar {
+  background-color: transparent;
+  border: 2px solid rgba(22, 22, 226, 0.637);
+  border-radius: 5px;
+  color: rgba(10, 10, 207, 0.637);
+  font-weight: 700;
+  height: 38px;
+}
+.btn-buscar:hover {
+  background-color: rgb(16, 16, 190);
+  color: rgba(228, 226, 226, 0.877);
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+  gap: 50px;
+  font-size: 1.3rem;
+  color: rgba(22, 22, 226, 0.637);
+}
+.botones a:link {
+  color: rgba(22, 22, 226, 0.637);
+  text-decoration: none;
+}
+.botones .ingresar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.botones .ingresar:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.39);
+}
+.botones .carrito {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.botones .carrito:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.39);
+}
+
+.icono {
+  width: 80px;
+  height: 100px;
+}
+
+.titulo {
+  width: 170px;
+  height: 80px;
+}
+
+@media (max-width: 768px) {
+  header .container-fluid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .logo .icono {
+    max-width: 100%;
+    max-height: 100%;
+    width: 80px;
+    height: 100px;
+  }
+  header .logo .titulo {
+    max-width: 100%;
+    max-height: 100%;
+    width: 170px;
+    height: 80px;
+  }
+  header .botones {
+    justify-content: center;
+  }
+}
+@media (max-width: 343px) {
+  header .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .logo .icono {
+    width: 40px;
+    height: 50px;
+  }
+  header .logo .titulo {
+    width: 70px;
+    height: 60px;
+  }
+}
+@media (max-width: 200px) {
+  header .container-fluid {
+    display: flex;
+    flex-direction: column;
+  }
+  header .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .logo .icono {
+    width: 40px;
+    height: 50px;
+  }
+  header .logo .titulo {
+    width: 70px;
+    height: 60px;
+  }
+}
+.nav-chico {
+  display: flex;
+  justify-content: start;
+  background-color: #02096d;
+  color: white;
+  padding: 10px;
+  position: relative;
+  z-index: 3;
+  /* Submenús */
+}
+.nav-chico .ul-1 {
+  margin-left: 20px;
+}
+.nav-chico ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.nav-chico li {
+  display: inline-block;
+  position: relative;
+}
+.nav-chico .ul-2 a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+}
+.nav-chico ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #02096d;
+  width: 200px;
+  border: 1px rgba(255, 255, 255, 0.74) solid;
+  border-radius: 5px;
+}
+.nav-chico ul ul li:hover {
+  background-color: #000cb4;
+}
+.nav-chico ul ul ul {
+  top: 15%;
+  left: 101%;
+}
+.nav-chico li:hover > ul,
+.nav-chico li.open > ul {
+  display: flex;
+  flex-direction: column;
+}
+.nav-chico li.open > ul > li {
+  display: flex;
+  position: relative;
+}
+
+@media (max-width: 358px) {
+  .categoria {
+    margin-left: 0px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.carrusel {
+  background-color: black;
+  padding-bottom: 35px;
+}
+.carrusel img {
+  height: 50vh;
+}
+.carrusel button span {
+  background-color: rgba(128, 128, 128, 0.699);
+}/*# sourceMappingURL=header.css.map */
