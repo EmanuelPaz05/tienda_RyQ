@@ -1,7 +1,7 @@
 
 //Llamar a las partes
     // Utiliza fetch para obtener el contenido del header
-    fetch('./partes/header.html')
+    fetch('../partes/header.html')
         .then(response => response.text())
         .then(html => {
             // Inserta el contenido del header en el contenedor
@@ -10,7 +10,7 @@
         .catch(error => console.error('Error al cargar el encabezado:', error));
 
         // Utiliza fetch para obtener el contenido del main
-    fetch('./partes/main.html')
+    fetch('../partes/main.html')
         .then(response => response.text())
         .then(html => {
             // Inserta el contenido del main en el contenedor
@@ -20,7 +20,7 @@
 
 
         // Utiliza fetch para obtener el contenido del footer
-    fetch('./partes/footer.html')
+    fetch('../partes/footer.html')
         .then(response => response.text())
         .then(html => {
             // Inserta el contenido del footer en el contenedor
