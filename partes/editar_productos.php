@@ -145,10 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>'
-                    ?>
-                </td>
-                <td class="text-center"> <?php echo '
+                    </div>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-producto">
                         Eliminar
                     </button>'
