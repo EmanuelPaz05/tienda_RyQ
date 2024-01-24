@@ -26,9 +26,9 @@ aaa
     <?php
     $id=$_GET['id'];
 
-    require("./conexion/conexion.php");
+    require("conexion/conexion.php");
     
-    $consulta = "SELECT * FROM productos WHERE pro_id = $id";
+    $consulta = "SELECT * FROM productos WHERE pro_barra = '$id'";
     if($resultado = $mysqli->query($consulta)){
         $extraido = $resultado->fetch_array();
         $rubro = $extraido['pro_rubro'];

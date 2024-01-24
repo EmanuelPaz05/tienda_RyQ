@@ -48,8 +48,7 @@
 </body>
     <!--Funciones partes-->
     <!--Jquery-->
-    <script src="./librerias/jquery/jquery-3.7.1.min.js">
-    </script>
+    <script src="./librerias/jquery/jquery-3.7.1.min.js"></script>
     
     <!--Bootstrap-->
     <script src="./librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js">

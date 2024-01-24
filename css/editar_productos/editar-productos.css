@@ -17,4 +17,9 @@ body {
 .btn-buscar:hover {
   background-color: rgb(16, 16, 190);
   color: rgba(228, 226, 226, 0.877);
-}/*# sourceMappingURL=editar-productos.css.map */
+}
+
+th, td{
+  
+}
+/*# sourceMappingURL=editar-productos.css.map */
