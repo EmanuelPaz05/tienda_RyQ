@@ -9,6 +9,32 @@
 </head>
 <body>
 
+<style>
+    .modal-header {
+        background-color: #343a40;
+        color: #fff;
+    }
+    .modal-footer {
+        background-color: #343a40;
+        color: #fff;
+    }
+    .text-dark {
+        color: #212529;
+    }
+    .ms-3 {
+        margin-left: 1rem;
+    }
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+    .nuevo_producto {
+        color: #000;
+    }
+    body {
+        background-color: rgb(124, 126, 146);
+    }
+</style>
+
 <div class="d-flex mb-2">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

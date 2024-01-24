@@ -20,7 +20,7 @@ function eliminar_producto(id){
 }
 
 //llamar partes
-fetch('../editar_productos/nuevo_producto.php')
+fetch('../tabla_productos/nuevo_producto.php')
 .then(response => response.text())
 .then(html => {
     // Inserta el contenido del modal nuevo producto en el contenedor
@@ -28,10 +28,41 @@ fetch('../editar_productos/nuevo_producto.php')
 })
 .catch(error => console.error('Error al cargar el modal:', error));
 
-fetch('../editar_productos/tabla_productos.php')
+fetch('../tabla_productos/tabla_productos.php')
 .then(response => response.text())
 .then(html => {
     // Inserta el contenido del tabla productos en el contenedor
     document.getElementById('llamar_tabla_productos').innerHTML = html;
 })
 .catch(error => console.error('Error al cargar el tabla productos:', error));
+
+
+$(document).ready(function () {
+    // ...
+
+    $('#tbl_productos').on('click', '.btn_guardar', function () {
+        var productId = $(this).data('product-id');
+        var modalId = 'modal-editar-producto-' + productId;
+        var form = $('#' + modalId + ' form');
+        var formData = form.serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: '../consultas/editar_productos.php',
+            data: formData,
+            success: function (response) {
+                var result = JSON.parse(response);
+
+                if (result.success) {
+                    alertify.success(result.message);
+                    // Cerrar el modal después de la actualización
+                    $('#' + modalId).modal('hide');
+                } else {
+                    alertify.error(result.message);
+                }
+            }
+        });
+    });
+});
+
+
