@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Tabla Productos</title>
 
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="../js/funciones.js" type="text/javascript"></script>
 
     <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -14,28 +15,30 @@
         });
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
 <style>
-    .table th {
-        text-align: center;
-        max-width: 20px;
-        max-height: 40px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: wrap;
+    :root {
+        --primary-color: #02021b;
+        --secondary-color: #0dcaf0;
     }
 
-    .table td{
+    #tbl_productos.dataTable th, #tbl_productos.dataTable td {
+        border: 1px solid var(--secondary-color);
         text-align: center;
-        max-width: 20px;
-        max-height: 40px;
+        max-width: 50px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        background-color: var(--primary-color);
+        color: white;
     }
 
+    #tbl_productos.dataTable tbody tr:hover {
+        background-color: var(--secondary-color);
+    }
 </style>
 
 <?php
@@ -47,8 +50,9 @@
 
 ?>
 
-<table class="table table-dark table-hover table-bordered" id="tbl_productos" style="table-layout: fixed;">
-    <thead class="text-center">
+
+<table class="table table-dark table-bordered border-info table-hover" id="tbl_productos">
+    <thead class="text-center table-primary">
         <tr>
             <th scope="col" class="ids">ID</th>
             <th scope="col">C.barra</th>
@@ -69,65 +73,40 @@
 
     <tbody>
         <?php
-            while($filas = mysqli_fetch_assoc($resultado)){
-                $datos = $filas;
-                $id = $filas['pro_id'];
+            if($resultado = $mysqli->query($consulta)){
+                while ($extraido = mysqli_fetch_array($resultado)){
+                $datos=$extraido['pro_id']."||".$extraido['pro_marca']."||".$extraido['pro_rubro']."||".$extraido['pro_modelo']."||".$extraido['pro_desc']."||".$extraido['pro_color']."||".$extraido['pro_precio_publico']."||".$extraido['pro_precio_costo']."||".$extraido['pro_precio_mayorista']."||".$extraido['imagen_1']."||".$extraido['imagen_2']."||".$extraido['imagen_3'];
+				$id=$extraido['pro_id'];
         ?>
         <tr>
-            <td class="ids"><?php echo $filas['pro_id'] ?></td>
-            <td><?php echo $filas['pro_barra'] ?></td>
-            <td><?php echo $filas['pro_marca'] ?></td>
-            <td><?php echo $filas['pro_rubro'] ?></td>
-            <td><?php echo $filas['pro_modelo'] ?></td>
-            <td><?php echo $filas['pro_desc'] ?></td>
-            <td><?php echo $filas['pro_color'] ?></td>
-            <td><?php echo $filas['pro_precio_publico'] ?></td>
-            <td><?php echo $filas['pro_precio_costo'] ?></td>
-            <td><?php echo $filas['pro_precio_mayorista'] ?></td>
-            <td><?php echo $filas['imagen_1'] ?></td>
-            <td><?php echo $filas['imagen_2'] ?></td>
-            <td><?php echo $filas['imagen_3'] ?></td>
+            <td class="ids" style="max-width: 5px;"><?php echo $extraido['pro_id'] ?></td>
+            <td><?php echo $extraido['pro_barra'] ?></td>
+            <td><?php echo $extraido['pro_marca'] ?></td>
+            <td><?php echo $extraido['pro_rubro'] ?></td>
+            <td><?php echo $extraido['pro_modelo'] ?></td>
+            <td><?php echo $extraido['pro_desc'] ?></td>
+            <td><?php echo $extraido['pro_color'] ?></td>
+            <td><?php echo $extraido['pro_precio_publico'] ?></td>
+            <td><?php echo $extraido['pro_precio_costo'] ?></td>
+            <td><?php echo $extraido['pro_precio_mayorista'] ?></td>
+            <td><?php echo $extraido['imagen_1'] ?></td>
+            <td><?php echo $extraido['imagen_2'] ?></td>
+            <td><?php echo $extraido['imagen_3'] ?></td>
             <td style="white-space: wrap;">
-                <div class="d-block align-items-center">
-                    <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#modal-editar-producto-<?php echo $id ?>">Editar</button>
+                <div class="d-block align-items-center justify-content-center">
+                    <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="editar_productos('<?php echo $datos ?>')"><i class="bi bi-pencil-square"></i></button>
 
-                    <div class="d-flex mb-2">
-                        <div class="modal fade editar_producto" id="modal-editar-producto-<?php echo $id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                <form action="../consultas/editar_productos.php" method="POST">
-                                    <input type="hidden" name="producto_id" value="<?php echo $id ?>">
-                                    <!-- Resto de los campos con valores actuales -->
-                                    <p class="text-dark">Marca: <input type="text" class="ms-3" name="marca" id="marca" value="<?php echo                       $filas['pro_marca'] ?>"></p>
-                                    <p class="text-dark">Rubro: <input type="text" class="ms-3" name="rubro" id="rubro" value="<?php echo                       $filas['pro_rubro'] ?>"></p>
-                                    <!-- ... otros campos ... -->
-                                </form>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" name="actualizar_producto">Guardar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" onclick="eliminar_producto('<?php echo $id ?>')" class="btn btn-danger">Eliminar</button>
+                    <button type="button" onclick="eliminar_producto('<?php echo $id ?>')" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                 </div>
             </td>
         </tr>
         <?php
-            };
+            }};
         ?>
     </tbody>
 </table>
 
 
-<script src="../librerias/jquery/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="../librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
 
 </body>

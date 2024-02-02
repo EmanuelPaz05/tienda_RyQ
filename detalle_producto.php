@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Producto</title>
-    <script type='text/javascript' src="librerias/jquery/jquery-3.7.1.min.js"></script>
-    
-    <script src="./partes/funciones-partes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>    
+    <script src="js/funciones-partes.js"></script>
 
     <!--estilos partes-->
     <link rel="shortcut icon" href="./logos/logo-png.webp">
@@ -20,8 +19,6 @@
     <link rel="stylesheet" href="./librerias/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
-
-aaa
 
     <?php
     $id=$_GET['id'];
@@ -57,11 +54,15 @@ aaa
         <?php echo '<img src="' . $direccion_1 . '" class="img-fluid" id="selected-image" alt="Imagen Seleccionada">' ?>
         <div id="product-images row">
             <?php
-                echo '
+                if(empty($direccion_1)){
+                // QUE CARGUE IMG DEAFULT EN TODAS LAS DIRECCIONES OSEA 3 IMAGENS
+                }else{
+                    echo '
                     <img class="product-image" src="' . $direccion_1 . '" alt="Imagen 1" onclick="changeImage(\'' . $direccion_1 . '\')">
                     <img class="product-image" src="' . $direccion_2 . '" alt="Imagen 2" onclick="changeImage(\'' . $direccion_2 . '\')">
                     <img class="product-image" src="' . $direccion_3 . '" alt="Imagen 3" onclick="changeImage(\'' . $direccion_3 . '\')">
-                ';
+                    ';
+                }
             ?>
         </div>
     </div>
@@ -85,25 +86,6 @@ aaa
             <button id="add-to-cart" class="action-button" onclick="addToCart()">Agregar al Carrito</button>
             <button id="buy-now" class="action-button btn-primary" onclick="buyNow()">Comprar Ahora</button>
         </div>
-    </div>
-</div>
-
-
-
-<div class="row d-flex justify-content-center align-items-center p-3">
-    <div class="card" style="width: 18rem;">
-        <?php echo' <img src="'.$direccion_1.'" class="card-img-top" alt="...">'?>
-    <div class="card-body">
-        <h5 class="card-title">
-            <?php
-                echo($marca);
-            ?>
-        </h5>
-        <p class="card-text">Descripcion:<?php echo $desc ?></p>
-        <p class="card-text">Precio: <?php echo $precio_pub ?></p>
-        <a href="#" class="btn btn-primary">Comprar</a>
-        <a href="#" class="btn btn-secondary">Agregar</a>
-    </div>
     </div>
 </div>
 

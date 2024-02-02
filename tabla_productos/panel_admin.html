@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="../librerias/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../librerias/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #818499;
+    }
+    header {
+      background-color: #000435;
+      color: white;
+      padding: 15px;
+      height: 20vh;
+      text-align: center;
+      font-size: 24px;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+    .card:hover{
+      transform: scale(1.1);
+    }
+    .button-container {
+      text-align: center;
+    }
+    button {
+      padding: 20px 40px;
+      margin: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #4e4caf;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #232466;
+    }
+  </style>
+</head>
+<body>
+
+  <header style="display: flex; flex-direction: row; justify-content: center; gap: 10px; align-items: center;">
+    <img src="../logos/logo-png.webp" width="90px" alt="logo_r&q">
+    <h1>Panel de Administración</h1>
+  </header>
+
+  <main style="display: flex; flex-direction: row; justify-content: space-around;">
+    <div class="card-group gap-5">
+      <div class="card text-center border-success text-bg-success rounded-2" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Tabla de stock de productos</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-light">Alta baja y modificación de productos de la base de datos.</p>
+          <a href="index_productos.php" class="btn btn-warning">Ir a Productos</a>
+        </div>
+      </div>
+      <div class="card text-center border-success text-bg-success rounded-2" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Tabla de ventas</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-light">Lista de ventas totales, podes imprimir facturas.</p>
+          <a href="ventas/ventas.html" class="btn btn-warning">Ir a ventas</a>
+        </div>
+      </div>
+      <div class="card text-center border-success text-bg-success rounded-2" style="width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">Tabla de compras</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-light">Listado de compras para el stock de productos.</p>
+          <a href="compras/compras.html" class="btn btn-warning">Ir a Compras</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+<script src="../librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

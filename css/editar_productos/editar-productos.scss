@@ -6,15 +6,26 @@ body{
     align-items: center;
 }
 
-.btn-buscar{
-    background-color: transparent;
-    border: 2px solid rgba(22, 22, 226, 0.637);
-    border-radius: 5px;
-    color: rgba(10, 10, 207, 0.637);
-    font-weight: 700;
-    height: 38px;
-    &:hover{
-        background-color: rgb(16, 16, 190);
-        color: rgba(228, 226, 226, 0.877);
-    }
+.modal-header {
+    background-color: #343a40;
+    color: #fff;
+}
+.modal-footer {
+    background-color: #343a40;
+    color: #fff;
+}
+.text-dark {
+    color: #212529;
+}
+.ms-3 {
+    margin-left: 1rem;
+}
+.mb-2 {
+    margin-bottom: 1rem;
+}
+.nuevo_producto {
+    color: #000;
+}
+body {
+    background-color: rgb(124, 126, 146);
 }
