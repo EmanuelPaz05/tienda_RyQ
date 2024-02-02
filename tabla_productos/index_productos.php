@@ -24,12 +24,12 @@
 
     <!--Nuevo Producto-->
     <div class="d-flex mb-2 mt-5">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Nuevo Producto
-    </button>
-    <!-- Modal -->
-    <div class="modal fade nuevo_producto" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Nuevo Producto
+        </button>
+        <!-- Modal -->
+        <div class="modal fade nuevo_producto" id="exampleModal" tabindex="-1"  aria-labelledby="exampleModalLabel"aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     </div>
 
     <!--Tabla productos-->
@@ -78,6 +78,8 @@
         <div id="llamar_tabla_productos"></div>
 
     </div>
+
+
 
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="../librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>

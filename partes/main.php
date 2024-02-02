@@ -5,6 +5,20 @@ $consulta = "SELECT * FROM productos LIMIT 10";
 $resultado = $mysqli->query($consulta);
 ?>
 
+
+<section class="tipos-pcs">
+        <div class="pc-home-office">
+            <a href=""><img src="./recursos/pc home office.jpg" alt="pc home office"></a>
+        </div>
+        <div class="pc-alto-rendimiento">
+            <a href=""><img src="./recursos/pc alto rendimiento.jpg" alt="pc alto rendimiento"></a>
+        </div>
+        <div class="pc-gaming">
+            <a href=""><img src="./recursos/pc gaming.jpg" alt="pc gaming"></a>
+        </div>
+</section>
+
+
 <section class="sliders ultimos-ingresos">
     <div class="header-section">
         <p class="m-0 ms-2 title">Últimos Ingresos</p>
@@ -38,22 +52,6 @@ $resultado = $mysqli->query($consulta);
         ?>
     </div>
 </section>
-
-
-
-
-<section class="tipos-pcs">
-        <div class="pc-home-office">
-            <a href=""><img src="./recursos/pc home office.jpg" alt="pc home office"></a>
-        </div>
-        <div class="pc-alto-rendimiento">
-            <a href=""><img src="./recursos/pc alto rendimiento.jpg" alt="pc alto rendimiento"></a>
-        </div>
-        <div class="pc-gaming">
-            <a href=""><img src="./recursos/pc gaming.jpg" alt="pc gaming"></a>
-        </div>
-</section>
-
 
 
 <section class="sliders lo-mas-comprado">
@@ -188,7 +186,6 @@ $resultado = $mysqli->query($consulta);
         </div>
     </div>
 </section>
-
 
 
 <div class="contacto text-light">

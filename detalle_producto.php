@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Producto</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>    
+    <script src="librerias/jquery/jquery-3.7.1.min.js"></script>    
     <script src="js/funciones-partes.js"></script>
 
     <!--estilos partes-->
-    <link rel="shortcut icon" href="./logos/logo-png.webp">
-    <link rel="stylesheet" href="./css/header/header.css">
-    <link rel="stylesheet" href="./css/footer/footer.css">
-    <link rel="stylesheet" href="./css/detalle_producto/detalle_pro.css">
+    <link rel="shortcut icon" href="logos/logo-png.webp">
+    <link rel="stylesheet" href="css/header/header.css">
+    <link rel="stylesheet" href="css/footer/footer.css">
+    <link rel="stylesheet" href="css/detalle_producto/detalle_pro.css">
     <script src="js/detalle_producto.js"></script>
 
     <!--bootstrap-->
-    <link rel="stylesheet" href="./librerias/bootstrap-5.3.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./librerias/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="librerias/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="librerias/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
 
@@ -43,24 +43,28 @@
     ?>
 
 
-<header id="menu">
-
-</header>
+<header id="headerContainer"></header>
 
 
 
 <div id="product-details">
     <div id="images-section">
-        <?php echo '<img src="' . $direccion_1 . '" class="img-fluid" id="selected-image" alt="Imagen Seleccionada">' ?>
+            <?php
+                // Asegúrate de que la ruta de la imagen principal se establezca incluso si está vacía o no es un enlace de imagen válido
+                $imagen_principal = (!empty($direccion_1) && filter_var($direccion_1, FILTER_VALIDATE_URL)) ? $direccion_1 : 'recursos/img_no_disponible.png';
+                echo '<img src="' . $imagen_principal . '" class="img-fluid" id="selected-image" alt="Imagen Seleccionada">';
+            ?>
         <div id="product-images row">
             <?php
-                if(empty($direccion_1)){
-                // QUE CARGUE IMG DEAFULT EN TODAS LAS DIRECCIONES OSEA 3 IMAGENS
-                }else{
+                if (empty($direccion_1) || !filter_var($direccion_1, FILTER_VALIDATE_URL)) {
+                    echo '<img class="product-image" src="recursos/img_no_disponible.png" alt="Imagen No Disponible">
+                          <img class="product-image" src="recursos/img_no_disponible.png" alt="Imagen No Disponible">
+                          <img class="product-image" src="recursos/img_no_disponible.png" alt="Imagen No Disponible">';
+                } else {
                     echo '
-                    <img class="product-image" src="' . $direccion_1 . '" alt="Imagen 1" onclick="changeImage(\'' . $direccion_1 . '\')">
-                    <img class="product-image" src="' . $direccion_2 . '" alt="Imagen 2" onclick="changeImage(\'' . $direccion_2 . '\')">
-                    <img class="product-image" src="' . $direccion_3 . '" alt="Imagen 3" onclick="changeImage(\'' . $direccion_3 . '\')">
+                        <img class="product-image" src="' . $direccion_1 . '" alt="Imagen 1" onclick="changeImage(\'' . $direccion_1 . '\')">
+                        <img class="product-image" src="' . $direccion_2 . '" alt="Imagen 2" onclick="changeImage(\'' . $direccion_2 . '\')">
+                        <img class="product-image" src="' . $direccion_3 . '" alt="Imagen 3" onclick="changeImage(\'' . $direccion_3 . '\')">
                     ';
                 }
             ?>
@@ -89,14 +93,11 @@
     </div>
 </div>
 
-
+<div id="footerContainer"></div>
 
 
 
 <script src="./librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js">
 </script>
 </body>
-<script>
-    $('#menu').load('partes/header.html');
-</script>
 </html>
