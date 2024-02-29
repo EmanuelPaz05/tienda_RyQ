@@ -1,7 +1,7 @@
 <?php
 require("../conexion/conexion.php");
 
-$consulta = "SELECT * FROM productos LIMIT 10";
+$consulta = "SELECT * FROM productos2 LIMIT 10";
 $resultado = $mysqli->query($consulta);
 ?>
 
@@ -22,10 +22,6 @@ $resultado = $mysqli->query($consulta);
 <section class="sliders ultimos-ingresos">
     <div class="header-section">
         <p class="m-0 ms-2 title">Últimos Ingresos</p>
-        <p class="arrows">
-            <span id="ultimos-ingresos-left">&#139;</span>
-            <span id="ultimos-ingresos-right">&#155;</span>
-        </p>
     </div>
 
     <div class="slider" id="ultimos-ingresos-slider">
@@ -37,9 +33,7 @@ $resultado = $mysqli->query($consulta);
             echo '<div class="producto producto1" onclick="redirectToDetalle(';
             echo "'{$enlaceDetalle}'";
             echo ')">';
-            echo '<picture>';
             echo '<img src="' . $producto['imagen_1'] .'">';
-            echo '</picture>';
             echo '<div class="detalles">';
             echo '<p>#' . $producto['pro_id'] . '</p>';
             echo '<p class="stock">En Stock</p>';
@@ -52,6 +46,13 @@ $resultado = $mysqli->query($consulta);
         ?>
     </div>
 </section>
+
+<script>
+    function redirectToDetalle(urlDetalle) {
+        // Redirige a la página de detalle del producto
+        window.location.href = urlDetalle;
+    }
+</script>
 
 
 <section class="sliders lo-mas-comprado">
@@ -197,7 +198,7 @@ $resultado = $mysqli->query($consulta);
                         <i class="bi bi-instagram fs-3 link-info"></i>
                     </div>
                 </a>
-                <a href="wsp">
+                <a href="https://api.whatsapp.com/send/?phone=%2B5491154553108&text&type=phone_number&app_absent=0">
                     <div class="wsp">
                         <i class="bi bi-whatsapp fs-3 link-info"></i>
                     </div>
@@ -211,12 +212,12 @@ $resultado = $mysqli->query($consulta);
         </div>
         <div class="publico c-1 text-center">
             <h4 class="text-light">ATENCIÓN AL PUBLICO</h4c>
-            <a class="email_field link-info link-underline-opacity-0" href="mailto:emanuelpazq2005@gmail.com"><h5>emanuelpazq2005@gmail.com</h5>
-            </a>
-            <a href="https://wa.me/5493572435989" class="link-info link-underline-opacity-0">
-                <i class="bi bi-whatsapp link-info"></i> +54 9 3572 43-5989
-            </a>
-        </div>
+                <a class="email_field link-info link-underline-opacity-0" href="mailto:alejandromena@gmail.com"><h5>alejandromena@gmail.com</h5>
+                </a>
+                <a href="https://api.whatsapp.com/send/?phone=%2B5491154553108&text&type=phone_number&app_absent=0" class="link-info link-underline-opacity-0">
+                <i class="bi bi-whatsapp link-info"></i> +54 9 11 5455-3108
+                </a>
+            </div>
         <div class="horarios c-1 text-center">
             <h4>HORARIOS DE ATENCIÓN</h4>
             <a class="link-info link-underline-opacity-0"><i class="bi bi-calendar"></i> de Lunes a Sábados de 9:00 a 13:00 y de 17:00 a 21:00</a>
@@ -278,137 +279,3 @@ $resultado = $mysqli->query($consulta);
 
 
 
-<!--copia de lo ultimoingrisoadod
-<section class="sliders ultimos-ingresos">
-    <div class="header-section">
-        <p class="m-0 ms-2 title">Últimos Ingresos</p>
-        <p class="arrows">
-            <span id="ultimos-ingresos-left">&#139</span>
-            <span id="ultimos-ingresos-right">&#155</span>
-        </p>
-    </div>
-
-    <div class="slider" id="ultimos-ingresos-slider">
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#1</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#2</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#3</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#4</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#5</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#6</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#7</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#8</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#9</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-        <div class="producto producto1">
-            <picture>
-                <img src="./recursos/g203-negro.jpeg" alt="">
-            </picture>
-            <div class="detalles">
-                <p>#10</p>
-                <p class="stock">En Stock</p>
-            </div>
-            <h5 class="precio">$33.000</h5>
-            <h4 class="modelo">Mouse g203 negro</h4>
-            <button class="agregar btn btn-outline-danger">Agregar<i class="bi bi-cart"></i></button>
-        </div>
-    </div>
-</section>
--->

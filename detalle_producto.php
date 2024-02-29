@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Producto</title>
-    <script src="librerias/jquery/jquery-3.7.1.min.js"></script>    
-    <script src="js/funciones-partes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="js/carrito.js"></script>
+
 
     <!--estilos partes-->
-    <link rel="shortcut icon" href="logos/logo-png.webp">
+    <link rel="shortcut icon" href="logos/logo.png">
     <link rel="stylesheet" href="css/header/header.css">
     <link rel="stylesheet" href="css/footer/footer.css">
     <link rel="stylesheet" href="css/detalle_producto/detalle_pro.css">
@@ -25,7 +26,7 @@
 
     require("conexion/conexion.php");
     
-    $consulta = "SELECT * FROM productos WHERE pro_barra = '$id'";
+    $consulta = "SELECT * FROM productos2 WHERE pro_barra = '$id'";
     if($resultado = $mysqli->query($consulta)){
         $extraido = $resultado->fetch_array();
         $rubro = $extraido['pro_rubro'];
@@ -43,8 +44,7 @@
     ?>
 
 
-<header id="headerContainer"></header>
-
+<div id="headerContainer"></div>
 
 
 <div id="product-details">
@@ -85,13 +85,13 @@
         </p>
 
         <p class="product-price">Precio: $<?php echo $precio_pub ?></p>
-
-        <div id="action-buttons">
-            <button id="add-to-cart" class="action-button" onclick="addToCart()">Agregar al Carrito</button>
-            <button id="buy-now" class="action-button btn-primary" onclick="buyNow()">Comprar Ahora</button>
-        </div>
+            
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" class="cantidad-label" value="1"><br><br>
+            <button class="action-button" id="agregar_carrito_btn" class="cantidad-input" type="button" data-producto-id="<?php echo $id_producto ?>">Agregar al Carrito <i class="bi bi-cart-plus"></i></button>
     </div>
 </div>
+
 
 <div id="footerContainer"></div>
 
@@ -99,5 +99,59 @@
 
 <script src="./librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js">
 </script>
+
+<script>
+    $(document).ready(function(){
+        $('#headerContainer').load('partes/header.php');
+        $('#footerContainer').load('partes/footer.html');
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#agregar_carrito_btn').click(function(){
+            // Obtener el usuario actualmente logueado (asumo que tienes esta información)
+            var usuario = $('#input-usu-id').val();
+
+            // Verificar si el usuario está logueado
+            if (usuario > 0) {
+                // Obtener el ID del producto y la cantidad seleccionada
+                var producto_id = obtenerProductoId();
+                var cantidad = $('#cantidad').val();
+            
+                // Verificar si se ha seleccionado un producto
+                if (producto_id) {
+                    // Realizar una solicitud AJAX para agregar el producto al carrito
+                    $.ajax({
+                        type: "POST",
+                        url: "consultas/agregar_carrito.php",
+                        data: {producto_id: producto_id, cantidad: cantidad, usuario_id: usuario},
+                        success: function(response) {
+                            // Manejar la respuesta del servidor (por ejemplo, mostrar un mensaje de éxito)
+                            alert("Producto agregado al carrito exitosamente");
+                        },
+                        error: function(xhr, status, error) {
+                            // Manejar los errores de la solicitud AJAX (por ejemplo, mostrar un mensaje de error)
+                            alert("Error al agregar el producto al carrito");
+                        }
+                    });
+                } else {
+                    alert("Por favor, seleccione un producto antes de agregar al carrito");
+                }
+            } else {
+                // Si el usuario no está logueado, mostrar un mensaje de advertencia
+                alert("¡Hola! Debes iniciar sesión para agregar productos al carrito.");
+            }
+        });
+
+        // Función para obtener el ID del producto
+        function obtenerProductoId() {
+            // Implementa la lógica para obtener el ID del producto seleccionado
+            // En este ejemplo, supondré que el ID del producto está almacenado en un atributo de datos del botón
+            return $('#agregar_carrito_btn').data('producto-id');
+        }
+    });
+</script>
+
 </body>
 </html>

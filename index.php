@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+
+if (isset($_SESSION["usuario"])) {
+    // Usuario autenticado
+}
+?>
+
+<!DOCTYPE html> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&Q COMPUTACIÓN</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="js/funciones-partes.js"></script>
+    <script src="js/carrito.js"></script>
 
     <!--estilos partes-->
-    <link rel="shortcut icon" href="logos/logo-png.webp">
+    <link rel="shortcut icon" href="logos/logo.png">
     <link rel="stylesheet" href="css/header/header.css">
     <link rel="stylesheet" href="css/main/main.css">
     <link rel="stylesheet" href="css/footer/footer.css">
@@ -21,7 +29,7 @@
 <body>
 
 
-    <div id="headerContainer"></div>
+    <?php include "partes/header.php"; ?>
 
     <div id="bannerContainer"></div>
 
@@ -32,6 +40,15 @@
 
     <!--Bootstrap-->
     <script src="librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js">
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#headerContainer').load('partes/header.php');
+            $('#footerContainer').load('partes/footer.html');
+            $('#bannerContainer').load('partes/banner.html');
+            $('#mainContainer').load('partes/main.php');
+        });
     </script>
 </body>
 </html>

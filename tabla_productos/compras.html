@@ -12,37 +12,16 @@
     <script src="../js/funciones.js" type="text/javascript"></script>
     
 </head>
-<body>
+<body style="background-color: #3f6b86">
 
     <div id="llamar_header_productos" class="mb-5"></div>
 
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br>
 
     <h2>Realizar Compra</h2>
 
-    <form action="" method="post">
-        <p name="rubro">R</p>
-    </form>
-
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="producto">Seleccionar Producto:</label>
-        <select name="producto_id" required>
-            <?php while ($producto = $resultado_productos->fetch_assoc()) : ?>
-                <option value="<?php echo $producto["id"]; ?>"><?php echo $producto["nombre"]; ?></option>
-            <?php endwhile; ?>
-        </select>
-
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cantidad" required>
-
-        <label for="proveedor">Proveedor:</label>
-        <select name="proveedor" required>
-            <?php foreach ($proveedores as $proveedor) : ?>
-                <option value="<?php echo $proveedor; ?>"><?php echo $proveedor; ?></option>
-            <?php endforeach; ?>
-        </select>
-
-        <input type="submit" value="Realizar Compra">
+    <form action="">
+        
     </form>
 
 </body>

@@ -45,7 +45,7 @@
 
     require("../conexion/conexion.php");
     
-    $consulta = "SELECT * FROM productos where 1";
+    $consulta = "SELECT * FROM productos2 where 1";
     $resultado = mysqli_query($mysqli, $consulta);
 
 ?>
@@ -61,6 +61,7 @@
             <th scope="col">Modelo</th>
             <th scope="col">Descripción</th>
             <th scope="col">Color</th>
+            <th scope="col">Cantidad</th>
             <th scope="col">Precio Publico</th>
             <th scope="col">Precio Compra/costo</th>
             <th scope="col">Precio mayorista</th>
@@ -75,7 +76,7 @@
         <?php
             if($resultado = $mysqli->query($consulta)){
                 while ($extraido = mysqli_fetch_array($resultado)){
-                $datos=$extraido['pro_id']."||".$extraido['pro_marca']."||".$extraido['pro_rubro']."||".$extraido['pro_modelo']."||".$extraido['pro_desc']."||".$extraido['pro_color']."||".$extraido['pro_precio_publico']."||".$extraido['pro_precio_costo']."||".$extraido['pro_precio_mayorista']."||".$extraido['imagen_1']."||".$extraido['imagen_2']."||".$extraido['imagen_3'];
+                $datos=$extraido['pro_id']."||".$extraido['pro_marca']."||".$extraido['pro_rubro']."||".$extraido['pro_modelo']."||".$extraido['pro_desc']."||".$extraido['pro_color']."||".$extraido['pro_cantidad']."||".$extraido['pro_precio_publico']."||".$extraido['pro_precio_compra']."||".$extraido['pro_precio_mayorista']."||".$extraido['imagen_1']."||".$extraido['imagen_2']."||".$extraido['imagen_3'];
 				$id=$extraido['pro_id'];
         ?>
         <tr>
@@ -86,8 +87,9 @@
             <td><?php echo $extraido['pro_modelo'] ?></td>
             <td><?php echo $extraido['pro_desc'] ?></td>
             <td><?php echo $extraido['pro_color'] ?></td>
+            <td><?php echo $extraido['pro_cantidad'] ?></td>
             <td><?php echo $extraido['pro_precio_publico'] ?></td>
-            <td><?php echo $extraido['pro_precio_costo'] ?></td>
+            <td><?php echo $extraido['pro_precio_compra'] ?></td>
             <td><?php echo $extraido['pro_precio_mayorista'] ?></td>
             <td><?php echo $extraido['imagen_1'] ?></td>
             <td><?php echo $extraido['imagen_2'] ?></td>

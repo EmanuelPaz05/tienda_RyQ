@@ -66,7 +66,8 @@ body{
             display: none;*/
         }
         .producto{
-            min-width: 24%;
+            cursor: pointer;
+            min-width: 20%;
             height: 90%;
             background-color: whitesmoke;
             margin: 0 20px 0 0;
@@ -77,16 +78,14 @@ body{
             display: flex;
             align-items: center;
             flex-direction: column;
-            picture{
+            img{
                 width: 100%;
-                height: 60%;
+                height: 40%;
                 padding: 20px;
                 display: flex;
                 overflow: hidden;
                 margin-bottom: 20px;
-                & img{
-                    width: 100%;
-                }
+                object-fit: fill;
             }
             .detalles{
                 display: flex;
@@ -104,6 +103,16 @@ body{
         }
     }
 }
+
+.producto {
+    /* Otros estilos */
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.producto:hover {
+    transform: scale(1.05); /* Escala del 105% al hacer hover */
+}
+
 
 @media (max-width: 1040px){
     .sliders{

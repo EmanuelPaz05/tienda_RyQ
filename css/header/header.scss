@@ -1,72 +1,67 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
     font-family: 'Poppins', 'Arial Narrow', Arial, sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-.navbar-brand .logo{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .icono img{
-        width: 80px;
-        height: 100px;
-    }
-    .titulo img{
-        width: 170px;
-        height: 80px;
-    }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.btn-rayas{
+.back {
+    padding: 63px 0px;
+    background-color: #01010c;
+    width: 100%;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+#menu {
+    display: none;
+}
+
+.menu label {
+    display: none;
+}
+
+.logo img {
+    height: 120px;
+}
+
+.btn-rayas {
     background-color: transparent;
     color: #1122bd;
     border-radius: 5px;
     border: 1px solid #0b0d75;
     padding: 4px 12px;
-    &:hover{
+    &:hover {
         background-color: transparent;
         color: #1122bd;
     }
-    &:active{
+    &:active {
         background-color: transparent;
         color: #1122bd;
     }
 }
 
-.contenido-desplegable.show {
-    display: block !important;
-}
-
-.contenido-desplegable {
-    display: none;
-}
-
-.nav-buscador{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    #buscador{
-        display: flex;
-    }
-}
-
-.btn-buscar{
-    background-color: transparent;
-    border: 2px solid rgba(22, 22, 226, 0.637);
-    border-radius: 5px;
-    color: rgba(10, 10, 207, 0.637);
-    font-weight: 700;
-    height: 38px;
-    &:hover{
-        background-color: rgb(16, 16, 190);
-        color: rgba(228, 226, 226, 0.877);
-    }
-}
-
-.botones{
+.botones {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,111 +69,67 @@ body{
     gap: 50px;
     font-size: 1.3rem;
     color: rgba(22, 22, 226, 0.637);
-    a:link{
+    a:link {
         color: rgba(22, 22, 226, 0.637);
         text-decoration: none;
     }
-    .ingresar{
+    .ingresar {
         display: flex;
         flex-direction: row;
         align-items: center;
-        &:hover{
+        &:hover {
             border-bottom: 1px solid rgba(255, 255, 255, 0.39);
         }
     }
-    .carrito{
+    .carrito {
         display: flex;
         flex-direction: row;
         align-items: center;
-        &:hover{
+        &:hover {
             border-bottom: 1px solid rgba(255, 255, 255, 0.39);
         }
     }
 }
 
-.icono{
-    width: 80px;
-    height: 100px;
-}
-.titulo{
-    width: 170px;
-    height: 80px;
-}
+@media (max-width: 790px) {
+    .menu {
+        padding: 30px;
+    }
 
-@media (max-width: 768px){
-    header{
-        .container-fluid{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            .icono{
-                max-width: 100%;
-                max-height: 100%;
-                width: 80px;
-                height: 100px;
-            }
-            .titulo{
-                max-width: 100%;
-                max-height: 100%;
-                width: 170px;
-                height: 80px;
-            }
-        }
-        .botones{
-            justify-content: center;
-        }
+    .menu label {
+        display: initial;
+    }
+
+    .back {
+        padding: 90px 0px;
+    }
+
+    .menu .navbar {
+        position: fixed;
+        top: 180px;
+        left: 0%;
+        background-color: #01010c;
+        display: none;
+        width: 100%;
+        transition: all 0.3s ease;
+        border-top: #232327 1px solid;
+    }
+
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar {
+        display: block;
+        width: 100vh;
+    }
+
+    .botones {
+        margin-left: 12px;
     }
 }
 
-@media (max-width: 343px){
-    header{
-        .logo{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            .icono{
-                width: 40px;
-                height: 50px;
-            }
-            .titulo{
-                width: 70px;
-                height: 60px;
-            }
-        }
-    }
-}
-
-@media (max-width: 200px){
-    header{
-        .container-fluid{
-            display: flex;
-            flex-direction: column;
-        }
-        .logo{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            .icono{
-                width: 40px;
-                height: 50px;
-            }
-            .titulo{
-                width: 70px;
-                height: 60px;
-            }
-        }
-    }
-}
-
-
-
-.nav-chico{
+.nav-chico {
     display: flex;
     justify-content: start;
     background-color: #02096d;
@@ -187,7 +138,7 @@ body{
     position: relative;
     z-index: 3;
 
-    .ul-1{
+    .ul-1 {
         margin-left: 20px;
     }
     ul {
@@ -219,12 +170,12 @@ body{
         width: 200px;
         border: 1px rgba(255, 255, 255, 0.74) solid;
         border-radius: 5px;
-        li:hover{
+        li:hover {
             background-color: #000cb4;
         }
     }
 
-    ul ul ul{
+    ul ul ul {
         top: 15%;
         left: 101%;
     }
@@ -241,25 +192,22 @@ body{
     }
 }
 
-@media (max-width: 358px){
-    .categoria{
+@media (max-width: 358px) {
+    .categoria {
         margin-left: 0px;
     }
-    nav{
+    nav {
         display: flex;
         flex-wrap: wrap;
     }
 }
 
-
-
-
-//carrusel
-.carrusel{
-    img{
+/*carrusel*/
+.carrusel {
+    img {
         height: 50vh;
     }
-    button span{
+    button span {
         background-color: rgba(128, 128, 128, 0.699);
     }
     background-color: black;

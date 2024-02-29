@@ -7,6 +7,7 @@ if (isset($_POST['id'])) {
     $rubro = $_POST['rubro'];
     $modelo = $_POST['modelo'];
     $color = $_POST['color'];
+    $cantidad = $_POST['cantidad'];
     $desc = $_POST['desc'];
     $precio_publico = $_POST['precio_publico'];
     $precio_costo = $_POST['precio_costo'];
@@ -19,9 +20,9 @@ if (isset($_POST['id'])) {
 
     $res = false;
     if($id==0){
-        $actualizar_query = "INSERT INTO `productos`(`pro_barra`, `pro_marca`, `pro_rubro`, `pro_modelo`, `pro_color`, `pro_desc`, `pro_precio_publico`, `pro_precio_costo`, `pro_precio_mayorista`, `imagen_1`, `imagen_2`, `imagen_3`, `pro_estado`) VALUES ('$barra','$marca','$rubro','$modelo','$color','$desc',$precio_publico,$precio_costo,$precio_mayorista,'$img_1','$img_2','$img_3','1')";
+        $actualizar_query = "INSERT INTO `productos2`(`pro_barra`, `pro_marca`, `pro_rubro`, `pro_modelo`, `pro_color`, `pro_cantidad`, `pro_desc`, `pro_precio_publico`, `pro_precio_costo`, `pro_precio_mayorista`, `imagen_1`, `imagen_2`, `imagen_3`, `pro_estado`) VALUES ('$barra','$marca','$rubro','$modelo','$color', '$cantidad', '$desc',$precio_publico,$precio_costo,$precio_mayorista,'$img_1','$img_2','$img_3','1')";
     }else{
-        $actualizar_query = "UPDATE productos SET pro_marca = '$marca', pro_rubro = '$rubro', pro_modelo = '$modelo', pro_color = '$color', pro_desc = '$desc', pro_precio_publico = '$precio_publico', pro_precio_costo = '$precio_costo', pro_precio_mayorista = '$precio_mayorista', imagen_1 = '$img_1', imagen_2 = '$img_2', imagen_3 = '$img_3' WHERE pro_id = $id";
+        $actualizar_query = "UPDATE productos2 SET pro_marca = '$marca', pro_rubro = '$rubro', pro_modelo = '$modelo', pro_color = '$color', pro_cantidad = '$cantidad', pro_desc = '$desc', pro_precio_publico = '$precio_publico', pro_precio_costo = '$precio_costo', pro_precio_mayorista = '$precio_mayorista', imagen_1 = '$img_1', imagen_2 = '$img_2', imagen_3 = '$img_3' WHERE pro_id = $id";
     }
     
     if (mysqli_query($mysqli, $actualizar_query)) {

@@ -1,1 +1,17 @@
-/*# sourceMappingURL=perfil.css.map */
+.oculto{
+    display: none;
+}
+
+.contenidos{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #CFF4FC;
+}
+
+.contenidos-2{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #CFF4FC;
+}

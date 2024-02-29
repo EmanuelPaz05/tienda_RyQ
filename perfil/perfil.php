@@ -1,15 +1,13 @@
 <?php
+session_start();
 
-    session_start();
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION["usuario"])) {
+    header("Location: ../index.php");
+    exit;
+}
 
-    if(!isset($_SESSION['loggedin'])){
-
-        echo '<script>window.location.href = "https://www.fixture.iscp.edu.ar/login/indexlogin.html";</script>';
-        exit;
-    }
-
-    
-
+$usuario = $_SESSION["usuario"];
 ?>
 
 
@@ -21,17 +19,18 @@
     <title>Perfil</title>
     <link rel="stylesheet" href="/css/perfil.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header/header.css">
+    <link rel="stylesheet" href="../css/footer/footer.css">
     <link rel="stylesheet" href="../css/perfil.css">
     <link rel="shortcut icon" href="../logos/logo sin texto - header-png.png" />
 </head>
 <body style="background-color: #075e62;">
 
+<h1>Bienvenido <?php echo $usuario; ?></h1>
 
-<header id='menu'>
 
-</header>
+<!-- Incluir el código del header aquí -->
+<?php include "../partes/header.php"; ?>
 
 
 <section>

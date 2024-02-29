@@ -23,6 +23,7 @@
     <div id="llamar_header_productos" class="mb-5"></div>
 
     <!--Nuevo Producto-->
+    <br>
     <div class="d-flex mb-2 mt-5">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -45,9 +46,11 @@
                             
                             <p class="text-dark">Modelo:<input type="text" class="ms-3" name="modelo" id="modelo"></p>
 
-                            <p class="text-dark">Color:<input type="text" class="ms-3" name="color" id="color"></p>
-                            
                             <p class="text-dark">Descripción:<input type="text" class="ms-3" name="desc" id="desc"></p>
+
+                            <p class="text-dark">Color:<input type="text" class="ms-3" name="color" id="color"></p>
+
+                            <p class="text-dark">Cantidad:<input type="number" class="ms-3" name="cantidad" id="cantidad"></p>
 
                             <p class="text-dark">Precio Publico:<input type="number" class="ms-3" name="precio_publico" id="precio_publico"></p>
                             
@@ -89,19 +92,12 @@
 
 <script>
     $(document).ready(function(){
-        alertify.success("Se actualizo correctamente los productos correctamente");
         new DataTable('#tbl_productos');
-        $('#llamar_header_productos').load('header_productos.html');
+        $('#llamar_header_productos').load('header_productos.php');
         $('#llamar_tabla_productos').load('tabla_productos.php');
         
         $('#btn_guardar').click(function(){
 
-            // // Convertir el array en un objeto
-            // $.each(formData, function(i, field){
-            //     formObject[field.name] = field.value;
-            // });
-
-            // console.log(formObject);
 
             var cadena = $('#form_productos').serialize();
             guardar_productos(cadena);

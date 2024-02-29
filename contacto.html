@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="js/carrito.js"></script>
+    
+    <link rel="stylesheet" href="css/header/header.css">
+    <link rel="stylesheet" href="css/footer/footer.css">
+    <link rel="shortcut icon" href="logos/logo.png">
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="librerias/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="librerias/bootstrap-icons-1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/contacto/contacto.css"> <!-- Agregamos el nuevo archivo CSS -->
+
+</head>
+<body>
+
+    <div id="headerContainer"></div>
+
+    <div class="container-xl">
+        <div class="row row-gap-5">
+            <div class="col-12 col-md-6">
+                <div class="contact-form p-4 mb-4">
+                    <h2 class="mb-4">Contáctanos</h2>
+                    <form action="consultas/recibir_emails.php" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="whatsapp-button p-4 mb-4 align-items-center d-flex justify-content-center">
+                    <a href="https://api.whatsapp.com/send/?phone=%2B5491154553108&text&type=phone_number&app_absent=0" target="_blank">
+                        <img src="recursos/icono-wsp.png" width="200px" alt="">
+                        <span class="fw-bold">Contáctenos en WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footerContainer"></div>
+
+
+    <script src="librerias/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#headerContainer').load('partes/header.php');
+            $('#footerContainer').load('partes/footer.html');
+        });
+    </script>
+</body>
+</html>
