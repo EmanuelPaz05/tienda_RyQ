@@ -29,6 +29,7 @@
     $consulta = "SELECT * FROM productos2 WHERE pro_barra = '$id'";
     if($resultado = $mysqli->query($consulta)){
         $extraido = $resultado->fetch_array();
+        $producto_id = $extraido['pro_id'];
         $rubro = $extraido['pro_rubro'];
         $marca = $extraido['pro_marca'];
         $modelo = $extraido['pro_modelo'];
@@ -39,13 +40,12 @@
         $direccion_1 = $extraido['imagen_1'];
         $direccion_2 = $extraido['imagen_2'];
         $direccion_3 = $extraido['imagen_3'];
-        
+        echo'<input type="text" name="" id="input_id_producto" value="'. $producto_id .'">';
     }
     ?>
 
 
 <div id="headerContainer"></div>
-
 
 <div id="product-details">
     <div id="images-section">
@@ -88,7 +88,7 @@
             
             <label for="cantidad">Cantidad:</label>
             <input type="number" name="cantidad" id="cantidad" class="cantidad-label" value="1"><br><br>
-            <button class="action-button" id="agregar_carrito_btn" class="cantidad-input" type="button" data-producto-id="<?php echo $id_producto ?>">Agregar al Carrito <i class="bi bi-cart-plus"></i></button>
+            <button class="action-button" id="agregar_carrito_btn" class="cantidad-input" type="button">Agregar al Carrito <i class="bi bi-cart-plus"></i></button>
     </div>
 </div>
 
@@ -112,26 +112,31 @@
         $('#agregar_carrito_btn').click(function(){
             // Obtener el usuario actualmente logueado (asumo que tienes esta información)
             var usuario = $('#input-usu-id').val();
+            var producto_id = $('#input_id_producto').val();
 
             // Verificar si el usuario está logueado
             if (usuario > 0) {
                 // Obtener el ID del producto y la cantidad seleccionada
-                var producto_id = obtenerProductoId();
                 var cantidad = $('#cantidad').val();
             
                 // Verificar si se ha seleccionado un producto
                 if (producto_id) {
                     // Realizar una solicitud AJAX para agregar el producto al carrito
+                    cadena = "producto_id="+producto_id+"&cantidad="+cantidad+"&usuario="+usuario;
                     $.ajax({
                         type: "POST",
                         url: "consultas/agregar_carrito.php",
-                        data: {producto_id: producto_id, cantidad: cantidad, usuario_id: usuario},
+                        data: cadena,
                         success: function(response) {
-                            // Manejar la respuesta del servidor (por ejemplo, mostrar un mensaje de éxito)
-                            alert("Producto agregado al carrito exitosamente");
+                            if (response==1) {
+                                alert("Producto agregado al carrito exitosamente");
+                                //sumar cantidad productos en carrito header
+                            }
+                            else{
+                                alert("Error al agregar el producto al carrito");
+                            }
                         },
                         error: function(xhr, status, error) {
-                            // Manejar los errores de la solicitud AJAX (por ejemplo, mostrar un mensaje de error)
                             alert("Error al agregar el producto al carrito");
                         }
                     });

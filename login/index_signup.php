@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST["contrasena"];
 
     // Validación de campos obligatorios
-    if (empty($nombre) || empty($apellido) || empty($email) || empty($usuario) || empty($contrasena)) {
+    if (empty($nombre_apellido) || empty($email) || empty($usuario) || empty($contrasena)) {
         echo "Todos los campos son obligatorios.";
     } else {
         // Verificar si el correo electrónico ya está en uso

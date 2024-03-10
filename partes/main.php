@@ -198,7 +198,7 @@ $resultado = $mysqli->query($consulta);
                         <i class="bi bi-instagram fs-3 link-info"></i>
                     </div>
                 </a>
-                <a href="https://api.whatsapp.com/send/?phone=%2B5491154553108&text&type=phone_number&app_absent=0">
+                <a href="https://api.whatsapp.com/send/?phone=%2B5493572606288&text&type=phone_number&app_absent=0">
                     <div class="wsp">
                         <i class="bi bi-whatsapp fs-3 link-info"></i>
                     </div>
@@ -212,9 +212,9 @@ $resultado = $mysqli->query($consulta);
         </div>
         <div class="publico c-1 text-center">
             <h4 class="text-light">ATENCIÓN AL PUBLICO</h4c>
-                <a class="email_field link-info link-underline-opacity-0" href="mailto:alejandromena@gmail.com"><h5>alejandromena@gmail.com</h5>
+                <a class="email_field link-info link-underline-opacity-0" href="mailto:tienda-ryq@gmail.com"><h5>tienda-ryq@gmail.com</h5>
                 </a>
-                <a href="https://api.whatsapp.com/send/?phone=%2B5491154553108&text&type=phone_number&app_absent=0" class="link-info link-underline-opacity-0">
+                <a href="https://api.whatsapp.com/send/?phone=%2B5493572606288&text&type=phone_number&app_absent=0" class="link-info link-underline-opacity-0">
                 <i class="bi bi-whatsapp link-info"></i> +54 9 11 5455-3108
                 </a>
             </div>
